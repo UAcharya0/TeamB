@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor Booking</title>
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+  </head>
+
+  <body>
+
+    <!-- Navbar -->
+    <header>
+      <nav class="navbar">
+        <div class="navbar-brand">
+          <div class="logo-container">
+            <img src="./images/Doctor sathi.png" alt="Doctor Sathi Logo">
+            <div class="brand-text">
+              <a href="/">Doctor Sathi</a>
+              <span class="subtext">Always Caring | Always Here</span>
+            </div>
+          </div>
+        </div>
+        <div class="navbar-links">
+          <a href="/">Home</a>
+          <a href="/doctors.html">All Doctors</a>
+          <a href="/about.html">About</a>
+          <a href="/contact.html">Contact Us</a>
+        </div>
+        <div class="navbar-auth">
+          <a href="/login.html" class="login-btn">Login</a>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Doctor Details Section (Full Width) -->
+    <section class="doctor-details">
+      <div class="profile-card">
+        <div class="profile-photo">PHOTO</div>
+        <div class="profile-info">
+          <h2>Dr. Name</h2>
+          <p><strong>Years of Experience:</strong> 10+</p>
+          <p><strong>Location:</strong> City Name</p>
+          <p><strong>Speciality:</strong> Cardiologist</p>
+          <p><strong>Consultation Fee:</strong> $50</p>
+        </div>
+      </div>
+
+      <div class="about-section">
+        <h3>About</h3>
+        <p>Dr. Name is an experienced specialist providing expert medical care.</p>
+      </div>
+    </section>
+
+    <!-- Booking Section (Full Width) -->
+    <section class="booking-section">
+      <h3>Booking Slots</h3>
+      <label for="booking-date">Select a Date:</label>
+      <input type="text" id="booking-date" placeholder="Pick a date">
+
+      <button id="confirm-booking">Book an Appointment</button>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="js/main.js"></script>
+  </body>
+
+</html>
