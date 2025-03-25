@@ -4,7 +4,7 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Doctor Booking</title>
+    <title>Doctor Profile</title>
     <link rel="stylesheet" href="styles/style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
   </head>
@@ -16,7 +16,7 @@
       <nav class="navbar">
         <div class="navbar-brand">
           <div class="logo-container">
-            <img src="./images/Doctor sathi.png" alt="Doctor Sathi Logo">
+            <img src="./images/Doctor_sathi.png" alt="Doctor Sathi Logo">
             <div class="brand-text">
               <a href="/">Doctor Sathi</a>
               <span class="subtext">Always Caring | Always Here</span>
@@ -35,36 +35,46 @@
       </nav>
     </header>
 
-    <!-- Doctor Details Section (Full Width) -->
+    <!-- Doctor Details Section -->
     <section class="doctor-details">
       <div class="profile-card">
-        <div class="profile-photo">PHOTO</div>
+        <img id="doctor-image" src="" alt="Doctor Image">
         <div class="profile-info">
-          <h2>Dr. Name</h2>
-          <p><strong>Years of Experience:</strong> 10+</p>
-          <p><strong>Location:</strong> City Name</p>
-          <p><strong>Speciality:</strong> Cardiologist</p>
-          <p><strong>Consultation Fee:</strong> $50</p>
+          <h2 id="doctor-name"></h2>
+          <p><strong>Years of Experience:</strong> <span id="doctor-experience"></span></p>
+          <p><strong>Location:</strong> <span id="doctor-location"></span></p>
+          <p><strong>Specialty:</strong> <span id="doctor-specialty"></span></p>
+          <p><strong>Consultation Fee:</strong> <span id="doctor-fee"></span></p>
         </div>
-      </div>
-
-      <div class="about-section">
-        <h3>About</h3>
-        <p>Dr. Name is an experienced specialist providing expert medical care.</p>
       </div>
     </section>
 
-    <!-- Booking Section (Full Width) -->
+    <!-- About Section -->
+    <section class="about-section">
+      <h3>About</h3>
+      <p id="doctor-about">Dr. Name is an experienced specialist providing expert medical care.</p>
+    </section>
+
+    <!-- Booking Section -->
     <section class="booking-section">
-      <h3>Booking Slots</h3>
+      <h3>Book an Appointment</h3>
       <label for="booking-date">Select a Date:</label>
       <input type="text" id="booking-date" placeholder="Pick a date">
-
-      <button id="confirm-booking">Book an Appointment</button>
+      <button id="confirm-booking">Book Now</button>
     </section>
 
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
-    <script src="js/main.js"></script>
+    <script src="js/doctor-profile.js"></script>
+    <script>
+      // Initialize Flatpickr for date selection
+      document.addEventListener("DOMContentLoaded", function () {
+        flatpickr("#booking-date", {
+          enableTime: false,
+          dateFormat: "Y-m-d",
+        });
+      });
+    </script>
+
   </body>
 
 </html>

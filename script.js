@@ -63,3 +63,24 @@ if (contactForm) {
     this.reset();
   });
 }
+
+// calender
+
+document.addEventListener("DOMContentLoaded", function () {
+  // Initialize Flatpickr (Calendar)
+  flatpickr("#booking-date", {
+    enableTime: false,
+    dateFormat: "Y-m-d",
+    minDate: "today"
+  });
+
+  // Handle booking confirmation
+  document.getElementById("confirm-booking").addEventListener("click", function () {
+    let selectedDate = document.getElementById("booking-date").value;
+    if (selectedDate) {
+      alert("Appointment booked for: " + selectedDate);
+    } else {
+      alert("Please select a date first!");
+    }
+  });
+});

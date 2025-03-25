@@ -96,7 +96,7 @@ body {
 
 /* ===== HERO SECTION STYLES ===== */
 .hero {
-  background-color: #f8f9fa;
+  background-color: #93d2d4;
   padding: 4rem 2rem;
   text-align: center;
 }
@@ -904,15 +904,23 @@ body {
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   gap: 20px;
   width: 75%;
+
 }
 
 .doctor-card {
-  background-color: #ffffff;
+  background-color: #c8e5eb;
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   text-align: center;
 }
+
+.doctor-card p {
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+}
+
 
 .doctor-card .availability {
   color: green;
@@ -925,7 +933,7 @@ body {
 }
 
 .doctor-card p {
-  color: #777;
+  color: #333;
 }
 
 .login-btn {
@@ -1023,4 +1031,68 @@ body {
 
 #confirm-booking:hover {
   background-color: #236e91;
+}
+
+
+/* drop down menu after login */
+
+.user-dropdown {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.user-icon {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.user-icon img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid #ddd;
+}
+
+.arrow-down {
+  font-size: 16px;
+  color: #00A0C6;
+}
+
+.dropdown-menu {
+  width: 190px;
+  /* Adjust the width */
+  padding: 12px 0;
+  /* Add vertical padding for better spacing */
+  background-color: #fff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  /* Softer shadow for better visibility */
+  border-radius: 10px;
+  /* Rounded corners for modern look */
+  position: absolute;
+  right: 0;
+  top: 100%;
+  display: none;
+  /* Hidden by default */
+}
+
+.dropdown-menu a {
+  display: block;
+  padding: 10px 20px;
+  color: #333;
+  text-decoration: none;
+  transition: background 0.3s;
+}
+
+.dropdown-menu a:hover {
+  background-color: #00A0C6;
+  color: #fff;
+  width: 180px;
+  transform: translateX(4px);
+  /* Subtle movement effect */
+}
+
+.dropdown-menu a:not(:last-child) {
+  border-bottom: 1px solid #e0e0e0;
 }

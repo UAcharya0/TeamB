@@ -102,3 +102,56 @@ document.querySelectorAll(".filter-btn").forEach(button => {
     });
   });
 });
+
+
+// Dropdown Functionality
+
+function toggleDropdown() {
+  const dropdownMenu = document.getElementById('dropdownMenu');
+  dropdownMenu.style.display = dropdownMenu.style.display === 'block' ? 'none' : 'block';
+}
+
+// Close dropdown when clicking outside
+window.addEventListener('click', function (event) {
+  const dropdownMenu = document.getElementById('dropdownMenu');
+  const userIcon = document.querySelector('.user-icon');
+
+  if (!userIcon.contains(event.target)) {
+    dropdownMenu.style.display = 'none';
+  }
+});
+
+
+// popup msg login success and fail
+
+document.getElementById('loginForm').addEventListener('submit', function (event) {
+  event.preventDefault(); // Prevent default form submission
+
+  const email = document.getElementById('email').value.trim();
+  const password = document.getElementById('password').value.trim();
+
+  // Simple validation check
+  if (!email || !password) {
+    alert("Please fill in both email and password.");
+    return;
+  }
+
+  // Mock authentication logic (replace this with your backend logic)
+  if (email === "user@example.com" && password === "password123") {
+    alert("Login successful! Redirecting to your dashboard...");
+    setTimeout(() => {
+      window.location.href = "afterlogin.html"; // Redirect after slight delay
+    }, 1000); // Smooth transition with slight delay for better UX
+  } else {
+    alert("Invalid email or password. Please try again.");
+  }
+});
+
+// To handle search on click
+
+document.getElementById("searchButton").addEventListener("click", function () {
+  let searchValue = document.getElementById("searchInput").value;
+  if (searchValue.trim() !== "") {
+    alert("Searching for: " + data - specialty);
+  }
+});
