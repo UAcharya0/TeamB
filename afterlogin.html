@@ -30,8 +30,23 @@
         <a href="contact.html">Contact Us</a>
       </div>
       <div class="navbar-auth">
-        <a href="login.html" class="login-btn">Login</a>
+        <div class="user-dropdown">
+          <div class="user-icon" onclick="toggleDropdown()">
+            <img src="./images/user.jpeg" alt="User Profile">
+            <span class="arrow-down">▼</span>
+          </div>
+
+          <div class="dropdown-menu" id="dropdownMenu">
+            <a href="profile.html">My Profile</a>
+            <a href="myappointments.html">My Appointments</a>
+            <a href="logout.html">Logout</a>
+          </div>
+        </div>
       </div>
+
+      </div>
+      </div>
+
     </nav>
 
     <!-- Hero Section -->
@@ -73,7 +88,7 @@
       <h2>Find Top Doctors for Your Health Needs</h2>
       <div class="doctors-grid">
         <div class="doctor-card">
-          <img src="./images/doc7.jpeg" alt="Dr. Hari Shukla">
+          <img src="./images/doc6.jpeg" alt="Dr. Hari Shukla">
           <h3>Dr. Hari Shukla</h3>
           <p>General Physician</p>
           <div class="rating">★★★★★</div>

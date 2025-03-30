@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor Profile</title>
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+  </head>
+
+  <body>
+
+    <!-- Navbar -->
+    <header>
+      <nav class="navbar">
+        <div class="navbar-brand">
+          <div class="logo-container">
+            <img src="./images/Doctor_sathi.png" alt="Doctor Sathi Logo">
+            <div class="brand-text">
+              <a href="/">Doctor Sathi</a>
+              <span class="subtext">Always Caring | Always Here</span>
+            </div>
+          </div>
+        </div>
+        <div class="navbar-links">
+          <a href="/">Home</a>
+          <a href="/doctors.html">All Doctors</a>
+          <a href="/about.html">About</a>
+          <a href="/contact.html">Contact Us</a>
+        </div>
+        <div class="navbar-auth">
+          <a href="/login.html" class="login-btn">Login</a>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Doctor Details Section -->
+    <div class="doctor-container">
+
+      <div class="doctor-details">
+        <div class="profile-card">
+          <img id="doctor-image" src="images/doc1.jpeg" alt="Doctor Image">
+          <div class="profile-info">
+            <h2 id="doctor-name">loading</h2>
+            <p><strong>Years of Experience:</strong> <span id="doctor-experience"></span></p>
+            <p><strong>Location:</strong> <span id="doctor-location"></span></p>
+            <p><strong>Specialty:</strong> <span id="doctor-specialty"></span></p>
+            <p><strong>Consultation Fee:</strong> <span id="doctor-fee"></span></p>
+          </div>
+        </div>
+        <button id="open-booking" class="book-btn">Book Appointment</button>
+      </div>
+
+      <div class="about-section">
+        <h3>About</h3>
+        <p id="doctor-about">Fetching details...</p>
+      </div>
+    </div>
+
+    <div id="booking-modal" class="modal">
+      <div class="modal-content">
+        <span class="close-btn" id="close-booking">&times;</span>
+        <h2>Book Appointment</h2>
+
+        <!-- Date Picker -->
+        <div class="date-picker">
+          <label>Select Date</label>
+          <input type="text" id="booking-date" placeholder="Pick a date">
+        </div>
+
+        <!-- Time Slot Selection -->
+        <div class="time-picker">
+          <label>Select Time Slot</label>
+          <div class="time-slots">
+            <!-- Time slots will be inserted dynamically -->
+          </div>
+        </div>
+        <button class="submit-btn" id="submit-appointment">Submit</button>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="js/doctor-profile.js"></script>
+
+  </body>
+
+</html>

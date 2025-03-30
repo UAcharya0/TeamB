@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor Sathi</title>
+    <link rel="stylesheet" href="styles/style.css">
+  </head>
+
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar">
+      <div class="navbar-brand">
+        <div class="logo-container">
+          <img src="./images/Doctor_sathi.png" alt="Doctor Sathi Logo">
+          <div class="brand-text">
+            <a href="index.html">Doctor Sathi</a>
+            <span class="subtext">Always Caring | Always Here</span>
+          </div>
+        </div>
+      </div>
+      <div class="navbar-links">
+        <a href="index.html">Home</a>
+        <a href="doctors.html">All Doctors</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact Us</a>
+      </div>
+
+      <div class="navbar-auth">
+        <div class="user-dropdown">
+          <div class="user-icon" onclick="toggleDropdown()">
+            <img src="./images/user.jpeg" alt="User Profile">
+            <span class="arrow-down">▼</span>
+          </div>
+          <div class="dropdown-menu" id="dropdownMenu">
+            <a href="profile.html">My Profile</a>
+            <a href="appointments.html">My Appointments</a>
+            <a href="logout.html">Logout</a>
+          </div>
+    </nav>
+
+    <div class="appointments-container" id="appointmentsContainer" style="display: block;">
+      <div class="appointments-header">
+        <button class="appointments-btn" onclick="toggleAppointments()">My Appointments</button>
+        <button class="past-history-btn" onclick="showPastHistory()">Past History</button>
+      </div>
+
+      <div class="appointment-card">
+        <img src="./images/doctor.jpg" alt="Doctor Picture" class="doctor-image">
+        <div class="doctor_details">
+          <h3>Dr. Richard James</h3>
+          <p class="specialty">General Physician</p>
+          <p class="address"><b>Address:</b> 57th Cross, Richmond Circle, Church Road, London</p>
+          <p class="date-time"><b>Date & Time:</b> 25th July, 2024 | 8:30 PM</p>
+        </div>
+        <div class="appointment-actions">
+          <button class="btn reschedule-btn">Reschedule Appointment</button>
+          <button class="btn cancel-btn">Cancel Appointment</button>
+        </div>
+      </div>
+
+      <div class="appointment-card">
+        <img src="./images/doctor.jpg" alt="Doctor Picture" class="doctor-image">
+        <div class="doctor_details">
+          <h3>Dr. Richard James</h3>
+          <p class="specialty">General Physician</p>
+          <p class="address"><b>Address:</b> 57th Cross, Richmond Circle, Church Road, London</p>
+          <p class="date-time"><b>Date & Time:</b> 25th July, 2024 | 8:30 PM</p>
+        </div>
+        <div class="appointment-actions">
+          <button class="btn reschedule-btn">Reschedule Appointment</button>
+          <button class="btn cancel-btn">Cancel Appointment</button>
+        </div>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <div class="footer-content">
+        <div class="footer-section">
+          <div class="footer-logo">
+            <img src="./images/Doctor_sathi.png" alt="Doctor Sathi Logo">
+          </div>
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+            <li><a href="privacy.html">Privacy Policy</a></li>
+            <li><a href="terms.html">Terms of Use</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Contact Info</h3>
+          <p>Email: info@doctorsathi.com</p>
+          <p>Phone: +977-1-4480690</p>
+          <p>Address: Kathmandu, Nepal</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 Doctor Sathi. All Rights Reserved.</p>
+      </div>
+    </footer>
+  </body>
+  <script src="js/main.js"></script>
+
+</html>

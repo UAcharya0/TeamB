@@ -90,15 +90,71 @@ document.addEventListener("DOMContentLoaded", function () {
 // for doctor page and after search
 
 
-document.querySelectorAll(".filter-btn").forEach(button => {
-  button.addEventListener("click", function () {
-    const specialty = this.getAttribute("data-specialty").toLowerCase();
-    document.querySelectorAll(".doctor-card").forEach(card => {
-      if (card.getAttribute("data-specialty").toLowerCase() === specialty) {
-        card.style.display = "block";
-      } else {
-        card.style.display = "none";
-      }
+document.addEventListener("DOMContentLoaded", function () {
+  const filterButtons = document.querySelectorAll(".filter-btn");
+  const doctorCards = document.querySelectorAll(".doctor-card");
+
+  filterButtons.forEach(button => {
+    button.addEventListener("click", () => {
+      const selectedSpecialty = button.getAttribute("data-specialty");
+
+      doctorCards.forEach(card => {
+        const doctorSpecialty = card.getAttribute("data-specialty");
+        if (doctorSpecialty === selectedSpecialty || selectedSpecialty === "All") {
+          card.style.display = "block";
+        } else {
+          card.style.display = "none";
+        }
+      });
     });
   });
 });
+
+
+
+// Dropdown Functionality
+
+function toggleDropdown() {
+  const dropdownMenu = document.getElementById('dropdownMenu');
+  dropdownMenu.style.display = dropdownMenu.style.display === 'block' ? 'none' : 'block';
+}
+
+// Close dropdown when clicking outside
+window.addEventListener('click', function (event) {
+  const dropdownMenu = document.getElementById('dropdownMenu');
+  const userIcon = document.querySelector('.user-icon');
+
+  if (!userIcon.contains(event.target)) {
+    dropdownMenu.style.display = 'none';
+  }
+});
+
+
+
+
+// To handle search on click
+
+document.getElementById("searchButton").addEventListener("click", function () {
+  let searchValue = document.getElementById("searchInput").value;
+  if (searchValue.trim() !== "") {
+    alert("Searching for: " + data - specialty);
+  }
+});
+
+
+// for myappointment page
+
+window.onload = function () {
+  document.getElementById('appointmentsContainer').style.display = 'block';
+};
+
+function toggleAppointments() {
+  const appointmentsContainer = document.getElementById('appointmentsContainer');
+  appointmentsContainer.style.display = 'block'; // Ensures it shows again after clicking 'Past History'
+}
+
+function showPastHistory() {
+  const appointmentsContainer = document.getElementById('appointmentsContainer');
+  // appointmentsContainer.style.display = 'none'; // Hides current appointments
+  alert('Feature for viewing past history is under development.');
+}

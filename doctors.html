@@ -9,11 +9,10 @@
   </head>
 
   <body>
-
     <nav class="navbar">
       <div class="navbar-brand">
         <div class="logo-container">
-          <img src="./images/Doctor sathi.png" alt="Doctor Sathi Logo">
+          <img src="./images/Doctor_sathi.png" alt="Doctor Sathi Logo">
           <div class="brand-text">
             <a href="/">Doctor Sathi</a>
             <span class="subtext">Always Caring | Always Here</span>
@@ -33,100 +32,118 @@
 
     <div class="container">
       <div class="sidebar">
-        <div class="search-bar">
-          <input type="text" id="searchInput" placeholder="Search by specialty">
-          <img src="search.png" alt="Search Icon">
+        <div class="browse-bar">
+          <p class="browse-text">Browse through doctors' specialties</p>
+          <!-- <button id="searchButton">
+            <img src="./images/search.png" alt="Search Icon">
+          </button> -->
         </div>
-
+        <button class="filter-btn" data-specialty="All">Show All</button>
         <button class="filter-btn" data-specialty="Dermatologist">Dermatologist</button>
         <button class="filter-btn" data-specialty="Neurologist">Neurologist</button>
         <button class="filter-btn" data-specialty="General Physician">General Physician</button>
         <button class="filter-btn" data-specialty="Cardiologist">Cardiologist</button>
         <button class="filter-btn" data-specialty="Psychiatrist">Psychiatrist</button>
         <button class="filter-btn" data-specialty="Gynecologist">Gynecologist</button>
+        <button class="filter-btn" data-specialty="Dentist">Dentist</button>
       </div>
 
       <div class="doctor-list">
-        <div class="doctor-card" data-specialty="Dermatologist">
-          <img src="doctor1.png" alt="Doctor Image">
-          <p><strong>Dr. Sameer Khadka</strong></p>
+        <a href="doctor-profile.html?id=doctor1" class="doctor-card" data-id="doctor1" data-specialty="Dermatologist">
+          <img src="./images/doc1.jpeg" alt="Doctor Image">
+          <h3>Dr. Sunita Khadka</h3>
           <p>Dermatologist</p>
           <p>Available</p>
-        </div>
-        <div class="doctor-card" data-specialty="Cardiologist">
-          <img src="doctor2.png" alt="Doctor Image">
-          <p><strong>Dr. Sanjaya Shrestha</strong></p>
+        </a>
+
+        <a href="doctor-profile.html?id=doctor2" class="doctor-card" data-id="doctor2" data-specialty="Cardiologist">
+          <img src="./images/doc2.jpeg" alt="Doctor Image">
+          <h3>Dr. Sanjaya Shrestha</h3>
           <p>Cardiologist</p>
           <p>Available</p>
-        </div>
-        <div class="doctor-card">
-          <img src="doctor3.jpg" alt="Doctor Image">
-          <p><strong>Dr. Lata Gautam</strong></p>
+        </a>
+
+        <a href="doctor-profile.html?id=doctor3" class="doctor-card" data-id="doctor3" data-specialty="Psychiatrist">
+          <img src="./images/doc3.jpeg" alt="Doctor Image">
+          <h3>Dr. Lison Gautam</h3>
           <p>Psychiatry</p>
-          <p class="available">Available</p>
-        </div>
-        <div class="doctor-card">
-          <img src="doctor4.jpg" alt="Doctor Image">
-          <p><strong>Dr. Chanda Karki</strong></p>
+          <p>Available</p>
+        </a>
+
+        <a href="doctor-profile.html?id=doctor4" class="doctor-card" data-id="doctor4" data-specialty="Gynecologist">
+          <img src="./images/doc4.jpeg" alt="Doctor Image">
+          <h3>Dr. Chandani Karki</h3>
           <p>Gynecology</p>
-          <p class="available">Available</p>
-        </div>
-        <div class="doctor-card">
-          <img src="doctor5.jpg" alt="Doctor Image">
-          <p><strong>Dr. Samir Poudel</strong></p>
+          <p>Available</p>
+        </a>
+
+        <a href="doctor-profile.html?id=doctor5" class="doctor-card" data-id="doctor5" data-specialty="Cardiologist">
+          <img src="./images/doc5.jpeg" alt="Doctor Image">
+          <h3>Dr. Samir Poudel</h3>
           <p>Cardiologist</p>
-          <p class="available">Available</p>
-        </div>
-        <div class="doctor-card">
-          <img src="doctor6.jpg" alt="Doctor Image">
-          <p><strong>Dr. Bharat Sharma</strong></p>
+          <p>Available</p>
+        </a>
+
+        <a href="doctor-profile.html?id=doctor6" class="doctor-card" data-id="doctor6" data-specialty="Physiotherapist">
+          <img src="./images/doc6.jpeg" alt="Doctor Image">
+          <h3>Dr. Bharat Sharma</h3>
           <p>Physiotherapist</p>
-          <p class="available">Available</p>
-        </div>
-        <div class="doctor-card">
-          <img src="doctor7.jpg" alt="Doctor Image">
-          <p><strong>Dr. Anju Thapa</strong></p>
+          <p>Available</p>
+        </a>
+
+        <a href="doctor-profile.html?id=doctor7" class="doctor-card" data-id="doctor7" data-specialty="Neurologist">
+          <img src="./images/doc7.jpeg" alt="Doctor Image">
+          <h3>Dr. Arjun Thapa</h3>
           <p>Neurologist</p>
-          <p class="available">Available</p>
-        </div>
-        <div class="doctor-card">
-          <img src="doctor8.jpg" alt="Doctor Image">
-          <p><strong>Dr. Ramesh Karki</strong></p>
+          <p>Available</p>
+        </a>
+
+        <a href="doctor-profile.html?id=doctor8" class="doctor-card" data-id="doctor8"
+          data-specialty="General Physician">
+          <img src="./images/doc8.jpeg" alt="Doctor Image">
+          <h3>Dr. Lata Karki</h3>
           <p>General Physician</p>
-          <p class="available">Available</p>
-        </div>
-        <div class="doctor-card">
-          <img src="doctor9.jpg" alt="Doctor Image">
-          <p><strong>Dr. Sita Maharjan</strong></p>
+          <p>Available</p>
+        </a>
+
+        <a href="doctor-profile.html?id=doctor9" class="doctor-card" data-id="doctor9" data-specialty="Gynecologist">
+          <img src="./images/doc10.jpeg" alt="Doctor Image">
+          <h3>Dr. Sita Maharjan</h3>
           <p>Gynecologist</p>
-          <p class="available">Available</p>
-        </div>
-        <div class="doctor-card">
-          <img src="doctor10.jpg" alt="Doctor Image">
-          <p><strong>Dr. Roshan Adhikari</strong></p>
+          <p>Available</p>
+        </a>
+
+        <a href="doctor-profile.html?id=doctor10" class="doctor-card" data-id="doctor10"
+          data-specialty="General Physician">
+          <img src="./images/doc11.jpeg" alt="Doctor Image">
+          <h3>Dr. Roshan Adhikari</h3>
           <p>General Physician</p>
-          <p class="available">Available</p>
-        </div>
-        <div class="doctor-card">
-          <img src="doctor11.jpg" alt="Doctor Image">
-          <p><strong>Dr. Pooja Sharma</strong></p>
-          <p>Dermatologist</p>
-          <p class="available">Available</p>
-        </div>
-        <div class="doctor-card">
-          <img src="doctor12.jpg" alt="Doctor Image">
-          <p><strong>Dr. Ram Prasad Joshi</strong></p>
+          <p>Available</p>
+        </a>
+
+        <a href="doctor-profile.html?id=doctor11" class="doctor-card" data-id="doctor11" data-specialty="Dentist">
+          <img src="./images/doc9.jpeg" alt="Doctor Image">
+          <h3>Dr. Pooja Sharma</h3>
+          <p>Dentist</p>
+          <p>Available</p>
+        </a>
+
+        <a href="doctor-profile.html?id=doctor12" class="doctor-card" data-id="doctor12" data-specialty="Psychiatrist">
+          <img src="./images/doc12.jpeg" alt="Doctor Image">
+          <h3>Dr. Ram Prasad Joshi</h3>
           <p>Psychiatrist</p>
-          <p class="available">Available</p>
-        </div>
+          <p>Available</p>
+        </a>
       </div>
+
     </div>
+    </div> <!-- Closing .container div -->
 
     <footer class="footer">
       <div class="footer-content">
         <div class="footer-section">
           <div class="footer-logo">
-            <img src="./images/Doctor sathi.png" alt="Doctor Sathi Logo">
+            <img src="./images/Doctor_sathi.png" alt="Doctor Sathi Logo">
           </div>
           <h3>Quick Links</h3>
           <ul>
@@ -148,6 +165,8 @@
         <p>&copy; 2025 Doctor Sathi. All Rights Reserved.</p>
       </div>
     </footer>
+
+    <script src="js/main.js"></script>
 
   </body>
 
