@@ -65,27 +65,6 @@ if (contactForm) {
 }
 
 
-// doctorpage
-
-document.addEventListener("DOMContentLoaded", function () {
-  // Initialize Flatpickr (Calendar)
-  flatpickr("#booking-date", {
-    enableTime: false,
-    dateFormat: "Y-m-d",
-    minDate: "today"
-  });
-
-  // Handle booking confirmation
-  document.getElementById("confirm-booking").addEventListener("click", function () {
-    let selectedDate = document.getElementById("booking-date").value;
-    if (selectedDate) {
-      alert("Appointment booked for: " + selectedDate);
-    } else {
-      alert("Please select a date first!");
-    }
-  });
-});
-
 
 // for doctor page and after search
 
@@ -157,4 +136,9 @@ function showPastHistory() {
   const appointmentsContainer = document.getElementById('appointmentsContainer');
   // appointmentsContainer.style.display = 'none'; // Hides current appointments
   alert('Feature for viewing past history is under development.');
+
 }
+
+// When a user books an appointment, store the details in the database
+//  and then fetch them dynamically in the My Appointments page
+
