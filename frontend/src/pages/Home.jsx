@@ -9,6 +9,7 @@ function Home() {
       <Header />
       <SpecialityMenu />
       <TopDoctors />
+      
     </div>
   )
 }

@@ -3,6 +3,8 @@ import profile_pic from './profile_pic.jpeg'
 import dropdown_icon from './dropdown_icon.png'
 import group_profiles from './group_profiles.png'
 import arrow_icon from './arrow_icon.png'
+import about from './about.jpg'
+
 
 
 
@@ -32,7 +34,10 @@ export const assets = {
   profile_pic,
   dropdown_icon,
   group_profiles,
-  arrow_icon
+  arrow_icon,
+  about
+
+
 }
 
 export const specialityData = [
@@ -69,22 +74,22 @@ export const specialityData = [
 export const doctors = [
   {
     _id: 'doc1',
-    name: 'Dr.Ram Prasad',
+    name: 'Dr. Sita Sharma',
     image: doc1,
-    speciality: 'General physician',
+    speciality: 'Gynocologist',
     experience: '5 years',
-    about: 'He has a strong commitment to delevery comprehensive medical care',
+    about: 'Focused on women’s reproductive health.',
     fees: 500,
     address: 'Naxal,Kathmandu'
 
   },
   {
     _id: 'doc2',
-    name: 'Dr. Sita Sharma',
+    name: 'Dr.Ram Prasad',
     image: doc2,
-    speciality: 'Gynocologist',
+    speciality: 'General physician',
     experience: '7 years',
-    about: 'Specializes in child healthcare and development.',
+    about: 'He has a strong commitment to delevery comprehensive medical care.',
     fees: 600,
     address: 'Naxal, Kathmandu'
   },
@@ -94,7 +99,7 @@ export const doctors = [
     image: doc3,
     speciality: 'Cardiologist',
     experience: '10 years',
-    about: 'Expert in heart-related diagnosis and treatment.',
+    about: 'He is xpert in heart-related diagnosis and treatment.',
     fees: 1000,
     address: 'Naxal, Kathmandu'
   },
@@ -104,7 +109,7 @@ export const doctors = [
     image: doc4,
     speciality: 'Dermatologist',
     experience: '6 years',
-    about: 'Experienced in skin treatment and cosmetic procedures.',
+    about: 'She is experienced in skin treatment and cosmetic procedures.',
     fees: 700,
     address: 'Naxal, Kathmandu'
   },
@@ -114,13 +119,13 @@ export const doctors = [
     image: doc5,
     speciality: 'Psychiatrist',
     experience: '9 years',
-    about: 'Helps patients with mental health and counseling.',
+    about: 'He helps patients with mental health and counseling.',
     fees: 850,
     address: 'Naxal, Kathmandu'
   },
   {
     _id: 'doc6',
-    name: 'Dr. Meera Rana',
+    name: 'Dr. Prakash Thapa',
     image: doc6,
     speciality: 'Gynecologist',
     experience: '8 years',
@@ -150,7 +155,7 @@ export const doctors = [
   },
   {
     _id: 'doc9',
-    name: 'Dr. Prakash Thapa',
+    name: 'Dr. Meera Rana',
     image: doc9,
     speciality: 'Neurologist',
     experience: '11 years',
@@ -175,6 +180,18 @@ export const doctors = [
     speciality: 'Neurologist',
     experience: '12 years',
     about: 'Treats brain, spine, and nervous system issues.',
+    fees: 1200,
+    address: 'Naxal, Kathmandu'
+
+  },
+
+  {
+    _id: 'doc12',
+    name: 'Dr. Daya Khadka',
+    image: doc12,
+    speciality: 'General physician',
+    experience: '12 years',
+    about: 'He has a strong commitment to delevery comprehensive medical care.',
     fees: 1200,
     address: 'Naxal, Kathmandu'
   }
