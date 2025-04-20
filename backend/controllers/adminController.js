@@ -16,24 +16,16 @@
 //   export {addDoctor}
 
 
-import doctorModel from '../models/doctorModel.js';
+import { doctorModel } from '../models/doctorModel.js';
+
 import { cloudinary } from '../config/cloudinary.js';
 import fs from 'fs';
 
 export const addDoctor = async (req, res) => {
   try {
     const {
-      name,
-      email,
-      password,
-      speciality,
-      degree,
-      experience,
-      about,
-      fee,
-      address,
-      available,
-      date
+      name, email, password, speciality, degree,
+      experience, about, fee, address, available, date
     } = req.body;
 
     const imageFile = req.file;
@@ -41,15 +33,12 @@ export const addDoctor = async (req, res) => {
       return res.status(400).json({ message: 'Image is required' });
     }
 
-    // Upload to Cloudinary
     const result = await cloudinary.uploader.upload(imageFile.path, {
       folder: 'doctors'
     });
 
-    // Delete from local folder
     fs.unlinkSync(imageFile.path);
 
-    // Save to MongoDB
     const newDoctor = await doctorModel.create({
       name,
       email,
@@ -59,9 +48,9 @@ export const addDoctor = async (req, res) => {
       degree,
       experience,
       about,
-      available: available === 'true', // comes as string from form
+      available: available === 'true',
       fee: Number(fee),
-      address: JSON.parse(address), // send as JSON string from Postman
+      address: JSON.parse(address),
       date: Number(date)
     });
 
@@ -71,7 +60,7 @@ export const addDoctor = async (req, res) => {
     });
 
   } catch (error) {
-    console.error('Error adding doctor:', error.message);
-    res.status(500).json({ error: 'Internal server error' });
+    console.error(error);
+    res.status(500).json({ error: 'Server Error' });
   }
 };

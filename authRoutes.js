@@ -1,3 +1,11 @@
+// http://localhost:3001/api/auth/register (POST)
+// http://localhost:3001/api/auth/login (POST)
+
+
+
+
+
+
 //For User Resister and Login 
 
 const express = require('express');
@@ -20,7 +28,7 @@ router.post('/register', async (req, res) => {
     gender = 'Not Selected',
     dob = 'Not Selected',
     address_line = '',
-    profile_image = null // optional, can be set later via upload
+    //profile_image = null // optional, can be set later via upload
   } = req.body;
 
   // Validate required fields
@@ -32,11 +40,12 @@ router.post('/register', async (req, res) => {
     const hashedPassword = await bcrypt.hash(password, 10);
 
     const sql = `
-      INSERT INTO users (full_name, email, password, phone, gender, dob, address_line, profile_image)
-      VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+      INSERT INTO users (full_name, email, password, phone, gender, dob, address_line)
+      VALUES (?, ?, ?, ?, ?, ?, ?)
     `;
 
-    db.query(sql, [full_name, email, hashedPassword, phone, gender, dob, address_line, profile_image], (err) => {
+    // db.query(sql, [full_name, email, hashedPassword, phone, gender, dob, address_line, profile_image], (err) => {
+      db.query(sql, [full_name, email, hashedPassword, phone, gender, dob, address_line], (err) => {
       if (err) {
         console.error('Registration error:', err);
         return res.status(500).json({ success: false, message: 'Database error' });
@@ -84,7 +93,7 @@ router.post('/login', (req, res) => {
         full_name: user.full_name,
         email: user.email,
         phone: user.phone,
-        profile_image: user.profile_image,
+        // profile_image: user.profile_image,
         gender: user.gender,
         dob: user.dob,
         address_line: user.address_line
@@ -137,7 +146,8 @@ router.put('/profile', verifyToken, (req, res) => {
 
   db.query(
     sql,
-    [full_name, phone, gender, dob, address_line, profile_image, userId],
+    // [full_name, phone, gender, dob, address_line, profile_image, userId],
+    [full_name, phone, gender, dob, address_line, userId],
     (err, result) => {
       if (err) {
         console.error('Update error:', err);

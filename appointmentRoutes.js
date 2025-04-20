@@ -1,68 +1,65 @@
+// http://localhost:3001/api/appointments/book
+
+
 const express = require('express');
 const router = express.Router();
 const db = require('./db');
+const verifyToken = require('./authMiddleware');
 
-// ✅ Book Appointment
-router.post('/book', (req, res) => {
-  const { user_id, doctor_id, appointment_date, appointment_time, status } = req.body;
+// ✅ Book Appointment (React frontend compatible)
+router.post('/book', verifyToken, (req, res) => {
+  const { doctor_id, appointment_date, appointment_time } = req.body;
+  const user_id = req.user.id;
 
-  if (!user_id || !doctor_id || !appointment_date || !appointment_time || !status) {
+  if (!doctor_id || !appointment_date || !appointment_time) {
     return res.status(400).json({ success: false, message: 'Missing required fields' });
   }
 
   const sql = `
     INSERT INTO appointments (user_id, doctor_id, appointment_date, appointment_time, status)
-    VALUES (?, ?, ?, ?, ?)
+    VALUES (?, ?, ?, ?, 'Scheduled')
   `;
 
-  db.query(sql, [user_id, doctor_id, appointment_date, appointment_time, status], (err, result) => {
+  db.query(sql, [user_id, doctor_id, appointment_date, appointment_time], (err, result) => {
     if (err) {
-      console.error('🛑 Booking failed:', err); // 🔍 LOG FULL ERROR IN TERMINAL
+      console.error('❌ Booking error:', err);
       return res.status(500).json({ success: false, message: 'Database error' });
     }
 
-    res.json({ success: true, message: 'Appointment booked successfully', appointmentId: result.insertId });
+    res.json({
+      success: true,
+      message: 'Appointment booked successfully',
+      appointment_id: result.insertId
+    });
   });
 });
 
-// ✅ Reschedule Appointment
-router.post('/reschedule', (req, res) => {
-  const { appointmentId, newDate, newTime } = req.body;
+// ✅ Check Slot Availability
+router.post('/check-slot', verifyToken, (req, res) => {
+  const { doctor_id, appointment_date, appointment_time } = req.body;
 
-  if (!appointmentId || !newDate || !newTime) {
-    return res.status(400).json({ success: false, message: 'Missing fields' });
+  if (!doctor_id || !appointment_date || !appointment_time) {
+    return res.status(400).json({ success: false, message: 'Missing required fields' });
   }
 
-  const sql = `UPDATE appointments SET appointment_date = ?, appointment_time = ? WHERE id = ?`;
+  const sql = `
+    SELECT * FROM appointments
+    WHERE doctor_id = ? AND appointment_date = ? AND appointment_time = ? AND status = 'Scheduled'
+  `;
 
-  db.query(sql, [newDate, newTime, appointmentId], (err) => {
+  db.query(sql, [doctor_id, appointment_date, appointment_time], (err, results) => {
     if (err) {
-      console.error('🛑 Rescheduling failed:', err); // Optional: log reschedule errors too
+      console.error('❌ Slot check error:', err);
       return res.status(500).json({ success: false, message: 'Database error' });
     }
 
-    res.json({ success: true, message: 'Appointment rescheduled' });
-  });
-});
-
-// ✅ Cancel Appointment
-router.post('/cancel', (req, res) => {
-  const { appointmentId } = req.body;
-
-  if (!appointmentId) {
-    return res.status(400).json({ success: false, message: 'Missing appointmentId' });
-  }
-
-  const sql = `DELETE FROM appointments WHERE id = ?`;
-
-  db.query(sql, [appointmentId], (err) => {
-    if (err) {
-      console.error('🛑 Cancellation failed:', err);
-      return res.status(500).json({ success: false, message: 'Database error' });
+    if (results.length > 0) {
+      return res.json({ success: false, message: 'Slot not available' });
     }
 
-    res.json({ success: true, message: 'Appointment cancelled' });
+    res.json({ success: true, message: 'Slot is available' });
   });
 });
 
 module.exports = router;
+
