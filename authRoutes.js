@@ -7,14 +7,13 @@
 
 
 //For User Resister and Login 
-
+// ✅ authRoutes.js
 const express = require('express');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const db = require('./db');
 const router = express.Router();
 const verifyToken = require('./authMiddleware');
-
 
 const SECRET_KEY = 'your-secret-key'; // Replace with secure key in production
 
@@ -28,10 +27,8 @@ router.post('/register', async (req, res) => {
     gender = 'Not Selected',
     dob = 'Not Selected',
     address_line = '',
-    //profile_image = null // optional, can be set later via upload
   } = req.body;
 
-  // Validate required fields
   if (!full_name || !email || !password || !phone) {
     return res.status(400).json({ success: false, message: 'All required fields must be filled' });
   }
@@ -44,8 +41,7 @@ router.post('/register', async (req, res) => {
       VALUES (?, ?, ?, ?, ?, ?, ?)
     `;
 
-    // db.query(sql, [full_name, email, hashedPassword, phone, gender, dob, address_line, profile_image], (err) => {
-      db.query(sql, [full_name, email, hashedPassword, phone, gender, dob, address_line], (err) => {
+    db.query(sql, [full_name, email, hashedPassword, phone, gender, dob, address_line], (err) => {
       if (err) {
         console.error('Registration error:', err);
         return res.status(500).json({ success: false, message: 'Database error' });
@@ -81,7 +77,6 @@ router.post('/login', (req, res) => {
       return res.status(401).json({ success: false, message: 'Invalid credentials' });
     }
 
-    // Optional: return user info along with token
     const token = jwt.sign({ id: user.id, email: user.email }, SECRET_KEY, { expiresIn: '1h' });
 
     res.json({
@@ -93,7 +88,6 @@ router.post('/login', (req, res) => {
         full_name: user.full_name,
         email: user.email,
         phone: user.phone,
-        // profile_image: user.profile_image,
         gender: user.gender,
         dob: user.dob,
         address_line: user.address_line
@@ -101,7 +95,6 @@ router.post('/login', (req, res) => {
     });
   });
 });
-
 
 // ✅ GET USER PROFILE (Protected)
 router.get('/profile', verifyToken, (req, res) => {
@@ -118,13 +111,9 @@ router.get('/profile', verifyToken, (req, res) => {
       return res.status(404).json({ success: false, message: 'User not found' });
     }
 
-    res.json({
-      success: true,
-      user: results[0]
-    });
+    res.json({ success: true, user: results[0] });
   });
 });
-
 
 // ✅ UPDATE USER PROFILE (Protected)
 router.put('/profile', verifyToken, (req, res) => {
@@ -135,7 +124,7 @@ router.put('/profile', verifyToken, (req, res) => {
     gender,
     dob,
     address_line,
-    profile_image
+    profile_image = null
   } = req.body;
 
   const sql = `
@@ -146,8 +135,7 @@ router.put('/profile', verifyToken, (req, res) => {
 
   db.query(
     sql,
-    // [full_name, phone, gender, dob, address_line, profile_image, userId],
-    [full_name, phone, gender, dob, address_line, userId],
+    [full_name, phone, gender, dob, address_line, profile_image, userId],
     (err, result) => {
       if (err) {
         console.error('Update error:', err);
@@ -158,6 +146,5 @@ router.put('/profile', verifyToken, (req, res) => {
     }
   );
 });
-
 
 module.exports = router;
